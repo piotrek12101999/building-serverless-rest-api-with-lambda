@@ -1,0 +1,26 @@
+createPost:
+  handler: src/functions/createPost/createPost.handler
+  events:
+    - http:
+        path: posts
+        method: post
+  environment:
+    POST_TABLE: !Ref PostTable
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:PutItem
+      Resource: !GetAtt PostTable.Arn
+getPosts:
+  handler: src/functions/getPosts/getPosts.handler
+  events:
+    - http:
+        path: posts
+        method: GET
+  environment:
+    POST_TABLE: !Ref PostTable
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+      Resource: !GetAtt PostTable.Arn
