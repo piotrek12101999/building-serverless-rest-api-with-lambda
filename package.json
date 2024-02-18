@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Learn how to create RESTful API using Lambda, API Gateway and DynamoDB. Streamline your workflow and build scalable solutions in the cloud with our step-by-step guide.",
   "scripts": {
-    "build": "sls package",
     "deploy:test": "sls deploy --stage=dev",
     "deploy:prod": "sls deploy --stage=prod"
   },
